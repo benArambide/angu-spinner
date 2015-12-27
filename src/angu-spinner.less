@@ -1,0 +1,161 @@
+/**
+ * 
+ */
+
+/** default color */
+@spin-back : fade(#fff, 80%) !important;
+@spin-color: #EA4335;
+@spin-text: #EA4335;
+@numberOfThemes: 4; //controls theme loop
+
+/** theming */
+.themeDefs(1) {
+	@spin-back : fade(#fff, 80%);
+	@spin-color-1: #EA4335;
+	@spin-color-2: #EA4335;
+	@spin-color-3: transparent;
+	@spin-color-4: #EA4335;
+	@spin-text: #EA4335;
+}
+
+.themeDefs(2) {
+	@spin-back : fade(#000, 80%);
+	@spin-color-1: #fff;
+	@spin-color-2: #fff;
+	@spin-color-3: transparent;
+	@spin-color-4: #fff;
+	@spin-text: #fff;
+}
+
+.themeDefs(3) {
+	@spin-back : fade(#fff, 80%);
+	@spin-color-1: fade(#EA4335, 30%);
+	@spin-color-2: fade(#EA4335, 30%);
+	@spin-color-3: #EA4335;
+	@spin-color-4: fade(#EA4335, 30%);
+	@spin-text: #EA4335;
+}
+
+.themeDefs(4) {
+	@spin-back : fade(#fff, 80%);
+	@spin-color-1: transparent;
+	@spin-color-2: #EA4335;
+	@spin-color-3: transparent;
+	@spin-color-4: #EA4335;
+	@spin-text: #EA4335;
+}
+
+
+
+.buildThemes(@index) when (@index < @numberOfThemes + 1) {
+
+	.angu-spinner{
+  		.angu-spinner-theme-@{index} {
+      		.themeDefs(@index); 
+      		-webkit-animation: fadein .5s; /* Safari, Chrome and Opera > 12.1 */
+	        -moz-animation: fadein .5s; /* Firefox < 16 */
+            -ms-animation: fadein .5s; /* Internet Explorer */
+            -o-animation: fadein .5s; /* Opera < 12.1 */
+            animation: fadein .5s;
+
+      		background: @spin-back !important;
+      		&,.spin{
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+			.spin{	
+				border: solid 6px @spin-color-3;		
+				border-top-color: @spin-color-1;      			
+      			border-right-color: @spin-color-2;      			      			
+      			border-left-color: @spin-color-4;
+			}
+			.word{
+				color: @spin-text !important;
+			}
+    	}
+    }
+    .buildThemes(@index + 1);
+}
+//stop loop
+.buildThemes(@index) {}
+//start theme building loop
+.buildThemes(1);
+
+.angu-spinner{
+	z-index: 3;
+	.spin{
+		-webkit-animation: club-spinner 900ms linear infinite;
+        -moz-animation: club-spinner 900ms linear infinite;
+        -ms-animation: club-spinner 900ms linear infinite;
+        -o-animation: club-spinner 900ms linear infinite;
+        animation: club-spinner 900ms linear infinite;
+
+        border-radius: 50%;
+      	width: 40px;
+     	height: 40px;   
+      	margin: auto;
+      	z-index: 4;
+	}
+	.word{
+		position: absolute;
+		top: calc(~"50% + 40px");
+		right: 0;
+    	left: 0;
+    	text-align: center;
+    	font-weight: bolder;
+	}
+}
+
+
+
+
+
+@-webkit-keyframes club-spinner {
+  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-moz-keyframes club-spinner {
+  0% { -moz-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-o-keyframes club-spinner {
+  0% { -o-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-ms-keyframes club-spinner {
+  0% { -ms-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@keyframes club-spinner {
+  0% { transform: rotate(0deg); transform: rotate(0deg); }
+  100% { transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

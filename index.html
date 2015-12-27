@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="TestApp">
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" >
+    
+
+
+    <script type="text/javascript" src="../vendor/angular/angular.min.js"></script>
+    <script type="text/javascript" src="dist/angu-spinner.js"></script>
+    <link rel="stylesheet" type="text/css" href="dist/angu-spinner.css">
+
+    <title></title>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<style type="text/css">
+	body{
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+</style>
+
+<body style="padding: 30px;" ng-controller="TestControll">
+<h1>Angu-Spinner</h1>
+<button ng-click="updateValue()" style="display:block">Toggle - hide and show Angu-Spinner</button>
+<br>
+<div style="overflow: hidden; margin-bottom: 20px;">
+	<div style="width: 50%;box-sizing: border-box;float: left;padding-left: 20px;">
+		<angu-spinner ng-model="loading" angu-spinner-op="{theme: 2, msg: 'Procesando...'}"></angu-spinner>
+		<h3 class="what"><span>¿Qué es Lorem Ipsum?</span></h3>
+		<p>
+Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).</p>
+	</div>
+	<div style="width: 50%;box-sizing: border-box;float: left;padding-left: 20px;">
+		<angu-spinner ng-model="loading" angu-spinner-op="{theme: 3, msg: 'Enviando...'}"></angu-spinner>
+		<h3 class="what"><span>¿Qué es Lorem Ipsum?</span></h3>
+		<p>
+Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).</p>
+	</div>
+</div>
+
+<div style="overflow: hidden; margin-bottom: 20px;">
+	<div style="width: 50%;box-sizing: border-box;float: left;padding-left: 20px;">
+		<angu-spinner ng-model="loading" angu-spinner-op="{theme: 1, msg: 'Procesando...'}"></angu-spinner>
+		<h3 class="what"><span>¿Qué es Lorem Ipsum?</span></h3>
+		<p>
+Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).</p>
+	</div>
+	<div style="width: 50%;box-sizing: border-box;float: left;padding-left: 20px;">
+		<angu-spinner ng-model="loading" angu-spinner-op="{theme: 4, msg: 'Enviando...'}"></angu-spinner>
+		<h3 class="what"><span>¿Qué es Lorem Ipsum?</span></h3>
+		<p>
+Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).</p>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	var app =  angular.module('TestApp', ['Angu-Spinner']);
+
+	app.controller('TestControll', ['$scope', function($scope){
+	    $scope.loading = true;
+	    $scope.updateValue = function()
+	    {
+	        $scope.loading = ($scope.loading) ? false : true;
+	    }
+	}])
+	
+</script>
+
+</body>
+</html>
